@@ -43,6 +43,7 @@ ALLOW = [
     "tools/export_q1.py",
 ]
 TEMPLATE_MAP = {"README.md": "README.md", "run.py": "run.py", "requirements.txt": "requirements.txt",
+                "AI_USE.md": "AI_USE.md",
                 "gitignore": ".gitignore", "gitattributes": ".gitattributes", "ci.yml": ".github/workflows/ci.yml",
                 "docs/method.md": "docs/method.md", "docs/code_tour.md": "docs/code_tour.md",
                 "tests/test_reproduce.py": "tests/test_reproduce.py"}
