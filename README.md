@@ -2,12 +2,25 @@
 
 Uzair Gheewala · UCSD DSC 180A · domain D04 (causal discovery), mentor Prof. Biwei Huang
 
+**Scope.** This companion recomputes the retained-graph comparison of the original
+Causal-Copilot pipeline and a separate refinement branch. It does not reproduce
+the complete Crucis paper, the framework or the stage-specific bootstrap finding.
+The [research repository](https://github.com/uzairgheewala/cc-research) holds the
+separate evidence and qualifications; the framework is
+[Crucis](https://github.com/crucis-lab/crucis).
+
+**Human and AI contributions.** Uzair Gheewala directed the work, approved designs
+and run plans, and made scientific and editorial decisions. AI assisted substantial
+planning, implementation, debugging, analysis and documentation. See
+[`AI_USE.md`](AI_USE.md) for important prompt summaries, validation and historical
+coverage limits.
+
 **Question.** [Causal-Copilot](https://github.com/Lancelot39/Causal-Copilot) is an LLM agent that runs a statistical causal
 discovery algorithm and then has a language model review the graph. What does each step do to the graph, and where do its
 changes come from: the numbers, the variable names, or its own decision rules? We run it unmodified on tables with known true
 graphs, with the column names controlled, and record every intermediate graph and every model call.
 
-**Q1 result so far.** On 30 tables (10 scenarios × real, neutral and swapped names), the unmodified review loses most of the
+**Q1 result so far.** On 30 tables (10 scenarios × real, neutral and swapped names), the unmodified pipeline loses most of the
 connections the algorithm found and crashes on 8 of 30 runs. A replacement review we wrote (refinement v2, on a branch of our
 fork) keeps them and finishes every run, at under half the cost. Whether it also gets more arrow *directions* right is not
 established: that interval includes zero.
@@ -85,7 +98,7 @@ tools/export_q1.py            how this repository is produced from the research 
 - **The research repository:** [uzairgheewala/cc-research](https://github.com/uzairgheewala/cc-research), commit `8e364ff9589ecc44f4c72151f1c9866d196c016e`.
   - It holds the harness that runs the agent in Docker and records it (`harness/run_traced.py`, `harness/cc_trace.py`,
     `harness/live_capped.py`), every analysis, the tracker and the project site.
-  - This repository is a curated, reproducible subset of it, produced by `tools/export_q1.py` (167 files, exported 2026-10-27 21:59 UTC).
+  - This repository began as a curated, reproducible subset produced by `tools/export_q1.py` (167 files, initially exported 2026-10-27 21:59 UTC). Subsequent documentation and disclosure changes are recorded in Git; the retained scientific inputs are unchanged.
 - **The project site:** [uzairgheewala.github.io/cc-research](https://uzairgheewala.github.io/cc-research/). Its
   [Inside Causal-Copilot](https://uzairgheewala.github.io/cc-research/copilot/) section explains every step of the agent from
   its code.
